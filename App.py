@@ -12,6 +12,21 @@ st.set_page_config(
 
 st.title("⚡ MnS AI Chart Scalper Scanner Pro")
 st.write("১m, ৫m বা ১৫m টাইমফ্রেমের যেকোনো চার্টের স্ক্রিনশট বা ক্যামেরা ফটো আপলোড করো। AI গভীরভাবে স্ক্যান করে ডেডলি সিগন্যাল দেবে।")
+import streamlit as st
+import google.generativeai as genai
+
+# এপিআই কি কনফিগারেশন
+api_key = st.sidebar.text_input("Enter Gemini API Key", type="password")
+
+if not api_key:
+    if "GEMINI_API_KEY" in st.secrets:
+        api_key = st.secrets["GEMINI_API_KEY"]
+
+if api_key:
+    genai.configure(api_key=api_key)
+else:
+    st.warning("⚠️ মামা, অ্যাপটি চালু করতে চাবি দাও!")
+    st.stop()
 
 # সাইডবার এআই সেটআপ ও এপিআই কি ইনপুট
 st.sidebar.header("🔑 AI Engine Setup")
