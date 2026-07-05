@@ -98,5 +98,3 @@ if uploaded_file is not None:
                     
     except Exception as e:
         st.error(f"কোথাও একটা টেকনিক্যাল ঝামেলা হয়েছে মামা! দয়া করে সঠিক ছবি দিয়ে আবার চেষ্টা করো। এরর কোড: {str(e)}")
-
-st.markdown("<br><hr><center>⚡ Developed with Deep Validation Logic for Mama's Trading ⚡</center>", unsafe_allowe_html=True)
